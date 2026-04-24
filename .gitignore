@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+.claude.json
+.claude-code/
+.mcp.json
+claude.md
+CLAUDE.md
+
+# Project planning (local only)
+DA03_Project-Plan.md
+DA03_Bank-Marketing-Data_project-guideline.png
