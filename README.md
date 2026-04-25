@@ -10,6 +10,8 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
 
+**[View the live report →](https://j-amores.github.io/DA-Marketing-Campaign-Analysis/)**
+
 ## Overview
 
 End-to-end exploratory data analysis of a Portuguese bank's direct marketing campaign for term deposit subscriptions, covering 41,188 customer contacts from May 2008 to November 2010. The project uses a structured **Size → Rank → Explain → Compare → Recommend** framework to identify high-conversion customer segments and optimize contact strategy.
@@ -21,7 +23,6 @@ End-to-end exploratory data analysis of a Portuguese bank's direct marketing cam
 ```
 DA03_Bank-Marketing-Campaign-Analysis/
 ├── README.md
-├── DA03_Project-Plan.md              # Problem statement and methodology
 ├── analysis.ipynb                    # Stage 1: 5-stage EDA pipeline
 ├── final-report.ipynb                # Stage 2: Narrative report
 ├── index.html                        # Stage 3: Self-contained editorial HTML report
@@ -70,6 +71,33 @@ DA03_Bank-Marketing-Campaign-Analysis/
 - **Feature Engineering:** 10 derived features including age_bucket, job_group, edu_level, duration_bucket, contact_bucket, season, and previously_contacted flag
 - **Unknown values preserved** as own category in 5 categorical fields
 - **Campaign outliers** (>20 contacts) flagged but retained (157 records)
+
+## Analysis Summary
+
+### Problem Statement
+A Portuguese bank's direct marketing campaign for term deposit subscriptions generated 41,188 customer contacts from May 2008 to November 2010 with an overall conversion rate of just 11.3%. The bank needs to identify high-conversion customer segments and optimize contact strategy to maximize subscription rate while minimizing campaign cost.
+
+### Approach: Size → Rank → Explain → Compare → Recommend
+
+#### 1. Size — What is the overall conversion rate, and how does it vary across customer segments?
+![Conversion funnel](charts/chart1_conversion_funnel.png)
+Overall conversion is 11.3% (4,640 of 41,188), heavily imbalanced (88.7% no). Segment-level variation is substantial — ranging from 5% to over 30% depending on customer profile, signaling strong targeting potential.
+
+#### 2. Rank — Which customer profiles have the highest subscription rates?
+![Job × age heatmap](charts/chart6_heatmap.png)
+Students (18–25) and retired customers (65+) lead at >30% conversion — 3× the baseline. Conversion follows a U-curve by age, with the working-age middle (36–55) converting near 8%.
+
+#### 3. Explain — What factors most influence subscription decisions?
+![Contact frequency decay](charts/chart5_frequency_decay.png)
+Cellular outperforms telephone by 9.5 pp (14.7% vs 5.2%). Conversion decays sharply beyond 3 contacts, falling from 11.1% to below 6%. Economic indicators (euribor3m, employment rate) correlate negatively with conversion.
+
+#### 4. Compare — How does previous campaign outcome and number of contacts affect current conversion?
+![Previous campaign outcome](charts/E4_previous_outcome.png)
+Customers with prior campaign success convert at 65.1% — a 7.4× lift over baseline and the strongest predictor in the dataset. 96.3% of customers were never previously contacted, leaving substantial untapped lift.
+
+#### 5. Recommend — What targeting and contact strategy would maximize subscription rate with minimal contacts?
+![Targeting scorecard](charts/E5_targeting_scorecard.png)
+A composite scorecard ranking job × age × contact-method × campaign-count combinations identifies a priority cohort: students/retirees, contacted via cellular, capped at 3 attempts, in peak months (Mar / Dec / Sep / Oct).
 
 ## Project Includes
 
@@ -126,4 +154,4 @@ This project demonstrates that **targeted segment selection and contact strategy
 ## Author
 
 - **John**
-- [GitHub](https://github.com/)
+- [J-Amores](https://github.com/J-Amores)
